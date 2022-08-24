@@ -1,0 +1,57 @@
+{% extends 'adminApp/layout.html' %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="container">
+        <h1 style = "text-align: center;"> All Orders </h1>
+    </div>
+        
+        <br><br>         
+        <table class="table table-bordered">
+            <tr>
+                <td>Id</td>
+                <td>User</td>
+                <td>Book</td>
+                <td>Address</td>
+                <td>Order Date</td>
+                <td>Order Quantity</td>
+                <td>Total Amount</td>
+                <td>Book Stock</td>
+                <td>Status</td>
+                <td>Update Status</td>
+            </tr>
+            {% for i in data %}
+            <tr>
+                
+                <td>{{i.id}}</td>
+                <td>{{i.user_id.username}}</td>
+                <td>{{i.book_id.name}}</td>
+                <td>{{i.address}}</td>
+                <td>{{i.order_date}}</td>
+                <td>{{i.quantity}}</td>
+                <td>{{i.total_amount}}</td>
+                <td>{{i.book_id.stock}}</td>
+                <td>
+                    {% if i.status == 'Accept' %}
+                    <span class="badge bg-success text-white">
+                        {{i.status}}
+                    </span>
+                    {% else %}
+                    <span class="badge bg-danger text-white">
+                        {{i.status}}
+                    </span>
+                    {% endif %}
+                    </td>
+                <td>
+                    <div class="d-flex justify-content-between">
+                        {% if i.status == 'pending' %}
+                        <a href="{% url 'updateOrder' i.id 'Accept' %}" class="btn btn-primary btn-sm">Accept</a>
+                        <a href="{% url 'updateOrder' i.id 'Reject' %}" class="btn btn-primary btn-sm"   >Reject</a>
+                        {% endif %}
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

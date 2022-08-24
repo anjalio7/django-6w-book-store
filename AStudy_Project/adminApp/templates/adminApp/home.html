@@ -1,0 +1,73 @@
+{% extends 'adminApp/layout.html' %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="container-fluid pt-5">
+        <div class="container pb-3">
+          <div class="row">
+            
+            <div class="col-lg-4 col-md-6 pb-1">
+              <div
+                class="d-flex bg-light shadow-sm border-top rounded mb-4"
+                style="padding: 30px"
+              >
+                <i
+                  class="flaticon-050-fence h1 font-weight-normal text-primary mb-3"
+                ></i>
+                <div class="pl-4">
+                  <h4>Categories</h4>
+                  <h5>{{catCount}}</h5>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 pb-1">
+                <div
+                  class="d-flex bg-light shadow-sm border-top rounded mb-4"
+                  style="padding: 30px"
+                >
+                  <i
+                    class="flaticon-050-fence h1 font-weight-normal text-primary mb-3"
+                  ></i>
+                  <div class="pl-4">
+                    <h4>SubCategories</h4>
+                    <h5>{{subCount}}</h5>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-6 pb-1">
+                <div
+                  class="d-flex bg-light shadow-sm border-top rounded mb-4"
+                  style="padding: 30px"
+                >
+                  <i
+                    class="flaticon-050-fence h1 font-weight-normal text-primary mb-3"
+                  ></i>
+                  <div class="pl-4">
+                    <h4>Books</h4>
+                    <h5>{{bookCount}}</h5>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-6 pb-1">
+                <div
+                  class="d-flex bg-light shadow-sm border-top rounded mb-4"
+                  style="padding: 30px"
+                >
+                  <i
+                    class="flaticon-050-fence h1 font-weight-normal text-primary mb-3"
+                  ></i>
+                  <div class="pl-4">
+                    <h4>Orders</h4>
+                    <h5>{{orderCnt}}</h5>
+                  </div>
+                </div>
+              </div>
+  
+          </div>
+        </div>
+      </div>
+</div>
+{% endblock %}

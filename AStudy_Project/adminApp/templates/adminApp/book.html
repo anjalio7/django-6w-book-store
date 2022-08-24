@@ -1,0 +1,45 @@
+<!--{% extends 'adminApp/layout.html' %}
+{% load static%}
+{% block body %}
+
+<div class="book" >
+    <form id="Book" method="post" action = "{% url '' %}">
+        {% csrf_token %}
+        <label style="font-style:bold; font-size: 30px; font-weight: 50%; color: black;">Sub Category Id</label><br>
+        <select name="category_Name" id="" placeholder="Enter Sub Category Name" 
+        style="width:auto; border-radius: 3px; padding:7px;
+        box-shadow: inset 1px 1px 5px rgba(206, 169, 169, 0.3);">
+        <option disabled selected> Select Sub Category </option>
+        {% for i in data %}
+        <option value="{{i.id}}">{{i.category_name}}</option>
+        {% endfor %}
+        </select>
+        <br><br>
+
+        <label style="font-style:bold; font-size: 30px; font-weight: 50%; color: black;">Name</label><br>
+        <input type="text" name="name" placeholder="Enter  Name" 
+        style="width:auto; border-radius: 3px; padding:7px;
+        box-shadow: inset 1px 1px 5px rgba(206, 169, 169, 0.3);"><br><br>
+
+        <label style="font-style:bold; font-size: 30px; font-weight: 50%; color: black;">Publication Year</label><br>
+        <input type="text" name="name" placeholder="Enter  Publication Year " 
+        style="width:auto; border-radius: 3px; padding:7px;
+        box-shadow: inset 1px 1px 5px rgba(206, 169, 169, 0.3);"><br><br>
+
+        <label style="font-style:bold; font-size: 30px; font-weight: 50%; color: black;">Publication </label><br>
+        <input type="text" name="name" placeholder="Enter  Publication  " 
+        style="width:auto; border-radius: 3px; padding:7px;
+        box-shadow: inset 1px 1px 5px rgba(206, 169, 169, 0.3);"><br><br>
+
+        <label style="font-style:bold; font-size: 30px; font-weight: 50%; color: black;">Author</label><br>
+        <input type="text" name="name" placeholder="Enter Author Name" 
+        style="width:auto; border-radius: 3px; padding:7px;
+        box-shadow: inset 1px 1px 5px rgba(206, 169, 169, 0.3);"><br><br>
+
+        <label style="font-style:bold; font-size: 30px; font-weight: 50%; color: black;">Price</label><br>
+        <input type="number" name="name" placeholder="Enter Price" 
+        style="width:auto; border-radius: 3px; padding:7px;
+        box-shadow: inset 1px 1px 5px rgba(206, 169, 169, 0.3);"><br><br>
+</div>
+
+{% endblock %}-->

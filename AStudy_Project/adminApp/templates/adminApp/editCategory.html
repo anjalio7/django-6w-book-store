@@ -1,0 +1,34 @@
+{% extends 'adminApp/layout.html' %}
+{% load static %}
+{% block body %}
+
+<div class="container">
+
+  {% if msg %}
+    <div class="alert-danger p-2 mb-3">
+      {{msg}}
+    </div>
+  {% endif %}
+  <div class="row justify-content-between align-items-start">
+    <div class="col-md-5">
+      <img class="img-fluid rounded mb-5 mb-lg-0" src={% static "assets/img/1.jpg" %} alt="" />
+    </div>
+    <div class="col-md-7">
+      <h1 >Edit Category </h1>
+    <form id="Category" method="post" action="{% url 'editCategory' data.id %}">
+      {% csrf_token %}
+      <label style="font-style:bold; font-size: 30px; font-weight: 50%; color: black;">Name</label><br>
+      <input type="text" name="name" placeholder="Enter Category Name" class="form-control" required value="{{data.category_name}}">
+      <input type="submit" class="btn btn-primary mt-3" value="Edit">
+    </form>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="col-lg-5">
+</div>
+<div class="category">
+  
+</div> -->
+
+{% endblock %}

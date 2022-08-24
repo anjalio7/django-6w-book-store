@@ -1,0 +1,44 @@
+{% extends 'adminApp/layout.html' %}
+{% load static %}
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <h1> Books </h1></div><br>
+        <div class="row">
+            <div class="col-md-12 mx-"  >
+                <a class="" href="{% url 'book' %}"> <button type="button"
+                    class="btn btn-lg-6 btn-success btn-outline-dark
+                    btn- lg pull-right">Add Book</button></a>
+            </div>
+        </div>
+        <br><br>         
+        <table class="table table-bordered">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Publication Year</th>
+                <th>Publication</th>
+                <th>Author</th>
+                <th>Price</th>
+            </tr>
+            {% for i in data %}
+            <tr>
+                
+                <td>{{i.id}}</td>
+                <td>{{i.category_name}}</td>
+                <td>
+                    <a href="{% url 'editCategory' i.id %}">
+                        <button style="background-color: rgb(127,236,137)">Edit</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'deleteCategory' i.id %}">
+                        <button style="background-color: rgb(127,236,137)">Delete</button>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}

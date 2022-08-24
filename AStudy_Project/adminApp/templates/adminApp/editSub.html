@@ -1,0 +1,54 @@
+{% extends 'adminApp/layout.html' %}
+{% load static %}
+{% block body %}
+
+<div class="container">
+  {% if msg %}
+    <div class="alert-danger p-2 mb-3">
+      {{msg}}
+    </div>
+  {% endif %}
+  <div class="row justify-content-between align-items-start">
+    <div class="col-md-5">
+      <img class="img-fluid rounded mb-5 mb-lg-0" src='{% static "assets/img/category2.jpg" %}' alt="" />
+    </div>
+    <div class="col-md-7">
+      <h1>Edit Sub Category </h1>
+      <form id="Category" method="post" action="{% url 'editSub' sub.id %}" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <label style="font-style:bold; font-size: 20px; font-weight: 50%;"> Category</label><br>
+        <select name="category_Name" id="" placeholder="Enter Category Name" class="form-control" required>
+          <option value="" disabled selected> Select Category </option>
+          {% for i in data %}
+          <option {% if sub.category_id.id == i.id %} selected {% endif %} value="{{i.id}}">{{i.category_name}}</option>
+          {% endfor %}
+        </select>
+        <br>
+
+
+        <label style="font-style:bold; font-size: 20px; font-weight: 50%;">Sub Category </label>
+        <input type="text" name="name" placeholder="Enter SubCategory" value="{{sub.category_name}}" required class="form-control">
+
+        <label style="font-style:bold; font-size: 20px; font-weight: 50%;">Image </label>
+        <input type="file" name="image" placeholder="Enter SubCategory" class="form-control">
+
+
+
+        <input type="submit" class="btn mt-3 btn-primary" value="Edit">
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div class="col-lg-5">
+    
+  </div>
+    <br><br>
+  
+<div class="category" >
+    
+</div> -->
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'adminApp/layout.html' %}
+{% load static %}
+{% block body %}
+<div class="container-fluid">
+    <div class="container">
+        <h1 style = "text-align: center;"> All Sub Categories </h1>
+        <div class="row">
+            <div class="col-md-12 mx-"  >
+                <a class="" href="{% url 'subC' %}"> <button type="button"
+                    class="btn btn-lg-6 btn-success d-block m-auto " >Add Sub Category</button></a>
+            </div>
+        </div>
+    </div>
+       
+        <br><br>
+        <table class="table table-bordered">
+            <tr>
+                <th>Id</th>
+                <th>Category Name</th>
+                <th>Sub Category Name</th>
+                <th>Image</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            {% for i in data %}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.category_id.category_name}}</td>
+                <td>
+                    {{i.category_name}}
+                </td>
+                <td>
+                    <img src="{{i.image.url}}" alt="" height="150px" width="200px">
+                </td>
+                <td>
+                    <a href="{% url 'editSub' i.id %}">
+                        <button style="background-color: rgb(127,236,137)">Edit</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'delete-subCategory' i.id %}">
+                        <button style="background-color: rgb(127,236,137)">Delete</button>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}

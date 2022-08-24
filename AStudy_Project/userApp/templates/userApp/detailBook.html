@@ -1,0 +1,76 @@
+{% extends 'userApp/layout.html' %}
+
+{% block body %}
+    <!-- Header Start -->
+    <div class="container-fluid bg-primary mb-5">
+        <div
+          class="d-flex flex-column align-items-center justify-content-center"
+          style="min-height: 400px"
+        >
+          <h3 class="display-3 font-weight-bold text-white">{{data.name}}</h3>
+          <div class="d-inline-flex text-white">
+            <p class="m-0"><a class="text-white" href="">Home</a></p>
+            <p class="m-0 px-2">/</p>
+            <p class="m-0">{{data.name}}</p>
+          </div>
+        </div>
+      </div>
+      <!-- Header End -->
+
+
+       <!-- Registration Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            {% if msg %}
+                <div class="alert-danger p-2">
+                    {{msg}}
+                </div>
+            {% endif %}
+          <div class="row align-items-center">
+            
+            <div class="col-lg-5">
+              <div class="card border-0">
+                <div class="card-header bg-secondary text-center p-4">
+                  <h1 class="text-white m-0">Your Book</h1>
+                </div>
+                <img src="{{data.img.url}}" alt="" class="img">
+
+                <!-- <div class="card-body rounded-bottom bg-primary p-5">
+                </div> -->
+              </div>
+            </div>
+            <div class="col-lg-7 mb-5 mb-lg-0">
+                <p class="section-title pr-5">
+                  <span class="pr-2">{{data.subcategory_id.category_name}}</span>
+                </p>
+                <h1 class="mb-4">{{data.name}}</h1>
+                <p>
+                  {{data.description}}
+                </p>
+                <ul class="list-inline m-0">
+                  <li class="py-2">
+                    <i class="fa fa-check text-success mr-3"></i>
+                    <strong>Author - </strong> {{data.author}}
+                  </li>
+                  <li class="py-2">
+                    <i class="fa fa-check text-success mr-3"></i>
+                    <strong>Price - </strong> {{data.price}}/-
+                  </li>
+                  <li class="py-2">
+                    <i class="fa fa-check text-success mr-3"></i>
+                    <strong>Publication - </strong> {{data.publication}}
+                  </li>
+                  <li class="py-2">
+                    <i class="fa fa-check text-success mr-3"></i>
+                    <strong>Publication Year - </strong> {{data.publication_year}}
+                  </li>
+                </ul>
+                {% if user.is_authenticated %}
+                <a href="{% url 'createOrder' data.id %}" class="btn btn-primary mt-4 py-2 px-4">Order Now</a>
+                {% endif %}
+              </div>
+          </div>
+        </div>
+      </div>
+      <!-- Registration End -->
+{% endblock %}

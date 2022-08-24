@@ -1,0 +1,54 @@
+{% extends 'userApp/layout.html' %}
+
+{% block body %}
+    <!-- Header Start -->
+    <div class="container-fluid bg-primary mb-5">
+        <div
+          class="d-flex flex-column align-items-center justify-content-center"
+          style="min-height: 400px"
+        >
+          <h3 class="display-3 font-weight-bold text-white">Orders</h3>
+          <div class="d-inline-flex text-white">
+            <p class="m-0"><a class="text-white" href="">Home</a></p>
+            <p class="m-0 px-2">/</p>
+            <p class="m-0">Orders</p>
+          </div>
+        </div>
+      </div>
+      <!-- Header End -->
+
+      <div class="container">
+        <div class="text-center pb-2">
+          <p class="section-title px-5">
+            <span class="px-2">Orders</span>
+          </p>
+          <h1 class="mb-4">Your Orders</h1>
+        </div>
+        <table class="table table-bordered">
+          <tr>
+              <th>Id</th>
+              <th>Book Name</th>
+              <th>Order Date</th>
+              <th>Address</th>
+              <th>Quantity</th>
+              <th>Book Price</th>
+              <th>Total Amount</th>
+              <th>Status</th>
+          </tr>
+          {% for i in data %}
+          <tr>
+              
+              <td>{{i.id}}</td>
+              <td>{{i.book_id.name}}</td>
+              <td>{{i.order_date}}</td>
+              <td>{{i.address}}</td>
+              <td>{{i.quantity}}</td>
+              <td>{{i.book_id.price}}</td>
+              <td>{{i.total_amount}}</td>
+              <td>{{i.status}}</td>
+          </tr>
+          {% endfor %}
+      </table>
+      </div>
+      
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'adminApp/layout.html' %}
+{% load static %}
+
+
+{% block body %}
+<div class="container-fluid">
+    <div class="container">
+        <h1 style = "text-align: center;"> All Books </h1>
+        <div class="row">
+            <div class="col-md-12 mx-"  >
+                <a class="" href="{% url 'book' %}" > <button type="button" 
+                    class="btn btn-lg-6 btn-success d-block m-auto">Add Books</button></a>
+            </div>
+        </div>
+    </div>
+        
+        <br><br>         
+        <table class="table table-bordered">
+            <tr>
+                <td>Id</td>
+                <td>SubCategory</td>
+                <td>Name</td>
+                <td>Description</td>
+                <td>Author</td>
+                <td>Publication</td>
+                <td>Year</td>
+                <td>Price</td>
+                <td>Stock</td>
+                <td>Image</td>
+                <td>Edit</td>
+                <td>Delete</td>
+            </tr>
+            {% for i in data %}
+            <tr>
+                
+                <td>{{i.id}}</td>
+                <td>{{i.subcategory_id.category_id.category_name}} - {{i.subcategory_id.category_name}}</td>
+                <td>{{i.name}}</td>
+                
+                    <td >
+                        <span style="max-height: 10px; overflow-y: scroll; ">{{i.description}}</span>
+                        </td>
+
+                <!-- </span> -->
+                <td>{{i.author}}</td>
+                <td>{{i.publication}}</td>
+                <td>{{i.publication_year}}</td>
+                <td>{{i.price}}/-</td>
+                <td>{{i.stock}}</td>
+                <td>
+                    <img src="{{i.img.url}}" alt="" height="150px" width="200px">
+                </td>
+                <td>
+                    <a href="{% url 'editBook' i.id %}">
+                        <button style="background-color: rgb(127,236,137)">Edit</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'deleteBook' i.id %}">
+                        <button style="background-color: rgb(127,236,137)">Delete</button>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+{% endblock %}
